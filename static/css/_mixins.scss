@@ -1,0 +1,15 @@
+// Миксин для равномерного распределения отступов
+@mixin adaptive-padding($content-width: 1200px) {
+  $value-padding: calc((100% - #{$content-width}) / 2);
+  padding-left: $value-padding;
+  padding-right: $value-padding;
+}
+
+// Миксин для позиционирования SVG
+@mixin svg_poz_adaptive($top, $left, $width, $height, $content-width) {
+  position: absolute;
+  top: $top;
+  left: calc((100vw - $content-width) / 2 + $left);
+  width: $width;
+  height: $height;
+}

@@ -1,0 +1,9 @@
+$font-family: "Montserrat", sans-serif;
+
+@mixin font($size: 16px, $weight: 400, $height: 100%, $letter-spacing: 0) {
+  font-family: $font-family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $letter-spacing;
+}
