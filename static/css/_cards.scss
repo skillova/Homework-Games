@@ -1,0 +1,101 @@
+.content {
+  @include adaptive-padding();
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 96px;
+  &:last-of-type {
+    margin-bottom: 144px;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 72px;
+  }
+  &__title {
+    @include font($size: 64px, $weight: 700, $height: 100%);
+    color: rgba(255, 255, 255, 1);
+  }
+  &__description {
+    @include font($size: 24px, $weight: 400, $height: 32px);
+    color: rgba(255, 255, 255, 1);
+    max-width: 788px;
+    margin-top: 33px;
+  }
+  &__cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(378px, 1fr));
+    gap: 32px;
+    &_big {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 378px;
+  background-color: rgba(247, 247, 247, 1);
+  border-radius: 30px;
+  overflow: hidden;
+  &_big {
+    flex-direction: row;
+    width: 100%;
+    height: 500px;
+  }
+  &__img {
+    position: relative;
+    width: 100%;
+    height: 314px;
+    border-radius: 30px;
+    overflow: hidden;
+    & img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.65);
+    }
+    &_big {
+      width: 50%;
+      height: 100%;
+      & img {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+  &__body {
+    padding: 32px 32px 36px 32px;
+    &_big {
+      width: 50%;
+      padding: 48px;
+    }
+  }
+  &__article {
+    @include font($size: 16px, $weight: 500, $height: 20px);
+    color: rgba(32, 32, 39, 1);
+    width: 111px;
+    height: 36px;
+    border-radius: 52.58px;
+    background: rgb(240, 237, 237);
+    padding: 8px 16px 10px 16px;
+    margin-bottom: 16px;
+  }
+  &__title {
+    @include font($size: 32px, $weight: 700, $height: 100%);
+    color: rgba(32, 32, 39, 1);
+    &_big {
+      font-size: 48px;
+    }
+  }
+  &__description {
+    @include font($size: 24px, $weight: 400, $height: 32px);
+    color: rgba(32, 32, 39, 1);
+    max-width: 457px;
+    margin-top: 24px;
+  }
+  &__button {
+    margin-top: 36px;
+    & button {
+      @include button;
+    }
+  }
+}
