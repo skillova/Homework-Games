@@ -1,0 +1,25 @@
+@media (max-width: 1232px) {
+  $content-width: 780px;
+  .header {
+    @include adaptive-padding($content-width);
+  }
+  .content {
+    @include adaptive-padding($content-width);
+    &__cards-wrapper {
+        gap: 24px;
+    }
+  }
+  .card {
+    &_big {
+      height: 418px;
+    }
+    &__title {
+      &_big {
+        font-size: 32px;
+      }
+    }
+  }
+  .footer {
+    @include adaptive-padding($content-width);
+  }
+}
