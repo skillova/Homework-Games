@@ -1,0 +1,125 @@
+@media (max-width: 811px) {
+  @mixin padding() {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .header {
+    @include padding();
+    height: 649px;
+    &__title {
+      @include font($size: 40px, $weight: 700, $height: 100%);
+    }
+  }
+  .content {
+    @include padding();
+    &:first-of-type {
+      display: none;
+    }
+    &:last-of-type {
+      margin-bottom: 48px;
+    }
+  }
+
+  .footer {
+    @include padding();
+  }
+}
+
+@media (max-width: 750px) {
+  .card {
+    &_big {
+      flex-direction: column;
+      width: 343px;
+      height: auto;
+      &:nth-child(odd) {
+        flex-direction: column;
+      }
+    }
+    &__img {
+      &_big {
+        width: 100%;
+        height: auto;
+      }
+    }
+    &__body {
+      &_big {
+        width: 100%;
+        padding: 29.04px 29.04px 32.67px 29.04px;
+      }
+    }
+    &__description {
+      @include font($size: 16px, $weight: 400, $height: 100%);
+      margin-top: 16px;
+    }
+    &__button {
+      & button {
+        @include button;
+        font-size: 16px;
+        line-height: 20px;
+        width: 100%;
+        height: 55px;
+        margin-top: 32px;
+      }
+    }
+  }
+}
+
+@media (max-width: 512px) {
+  .header {
+    align-items: center;
+    &__block-content {
+      text-align: center;
+    }
+    &__subtitle {
+      @include font($size: 16px, $weight: 400, $height: 100%);
+      &_bold {
+        font-weight: 600;
+        letter-spacing: -0.3px;
+      }
+    }
+    &__button {
+      & button {
+        width: 285px;
+        height: 55px;
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+  .content {
+    &__title {
+      font-size: 40px;
+    }
+    &__header {
+      margin-bottom: 48px;
+    }
+  }
+  .marquee {
+    height: 51.34px;
+    margin-bottom: 48.34px;
+    & ul {
+      display: flex;
+      gap: 27.4px;
+      list-style-type: none;
+      & li {
+        @include font(
+          $size: 16px,
+          $weight: 700,
+          $height: 20px,
+          $letter-spacing: 4%
+        );
+        gap: 27.4px;
+        &::after {
+          width: 19.34px;
+          height: 19.34px;
+        }
+      }
+    }
+  }
+  .footer {
+    height: 100px;
+    & p {
+      font-size: 16px;
+    }
+  }
+}
