@@ -1,56 +1,58 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link href="{% static '/css/style.css' %}" rel="stylesheet" />
-    <title>{{ page_number}}</title>
-  </head>
-  <body>
-    <div class="star-2"></div>
-    <div class="star-3"></div>
-    <div class="star-4"></div>
-    <div class="star-5"></div>
-    <div class="vector"></div>
-    <div class="vector-4780"></div>
-    <div class="vector-4781"></div>
-    <div class="vector-4782"></div>
-    <div class="vector-4788"></div>
-    <div class="vector-4791"></div>
-    <header class="header">
-      <div class="header__block-content">
-        <h1 class="header__title">
-          Добро пожаловать <br />на мой сайт мини-игр
-        </h1>
-        <h2 class="header__subtitle">
-          Тебе предстоит пройти несколько увлекательных игр. <br />Если готов,
-          нажимай
-          <span class="header__subtitle header__subtitle_bold">«Поехали!»</span>
-          и
-          <span class="header__subtitle header__subtitle_bold">приступай</span>.
-        </h2>
+{% extends 'main/base.html' %} {% block about_games %}
+<section class="content">
+  <div class="content__header">
+    <div class="content__title">
+      <h2>Об играх</h2>
+    </div>
+    <div class="content__description">
+      <p>В моей коллекции представлено 6 игр на разные темы.</p>
+      <p>Игры несложные — в них может поиграть каждый.</p>
+      <p>Все игры доступны для пользования.</p>
+    </div>
+  </div>
+  <div class="content__cards-wrapper">
+    {% for game in games %}
+    <article class="card">
+      <div class="card__img">
+        <img src="{{ game.image.url }}" alt="" />
       </div>
-      <div class="header__block-nav">
-        <button class="header__btn">Поехали!</button>
+      <div class="card__body">
+        <div class="card__article">
+          <span>{{ game.article }}</span>
+        </div>
+        <div class="card__title">
+          <h2>{{ game.name }}</h2>
+        </div>
       </div>
-      <div class="header__run-line">
-        <ul>
-          <li><a href="#">Викторина</a></li>
-          <li><a href="#">угадай число</a></li>
-          <li><a href="#">Переверни текст</a></li>
-          <li><a href="#">Простая арифметика</a></li>
-          <li><a href="#">Камень, ножницы, бумага</a></li>
-          <li><a href="#">Генератор случайных цветов</a></li>
-        </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<section class="content">
+  <div class="content__header">
+    <div class="content__title">
+      <h2>Мини-игры</h2>
+    </div>
+  </div>
+  <div class="content__cards-wrapper content__cards-wrapper_big">
+    {% for game in games %}
+    <article class="card card_big">
+      <div class="card__img card__img_big">
+        <img src="{{ game.image.url }}" alt="" />
       </div>
-    </header>
-  </body>
-</html>
+      <div class="card__body card__body_big">
+        <div class="card__title card__title_big">
+          <h2>{{ game.name }}</h2>
+        </div>
+        <div class="card__description">
+          <p>{{ game.description }}</p>
+        </div>
+        <div class="card__button">
+          <button>Играть!</button>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

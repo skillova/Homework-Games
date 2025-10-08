@@ -13,3 +13,18 @@
   width: $width;
   height: $height;
 }
+
+@mixin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include font($size: 24px, $weight: 600, $height: 29px);
+  color: rgba(255, 255, 255, 1);
+  width: 247px;
+  height: 66px;
+  box-sizing: border-box;
+  border: 1px solid rgba(32, 32, 39, 1);
+  border-radius: 60px;
+  background: rgba(32, 32, 39, 1);
+  padding: 16px 28px 16px 28px;
+}

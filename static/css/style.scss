@@ -1,7 +1,9 @@
 @import "fonts";
 @import "mixins";
 
-h1 {
+h1,
+h2,
+img {
   all: unset;
 }
 
@@ -11,8 +13,12 @@ h1 {
   box-sizing: border-box;
 }
 
+html,
 body {
   position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
   background: rgba(32, 32, 39, 1);
 }
 
@@ -20,7 +26,7 @@ $content-width: 1200px;
 
 .header {
   @include adaptive-padding($content-width);
-  height: 800px;
+  height: 710px;
   display: flex;
   flex-direction: column;
   background: rgba(225, 255, 143, 1);
@@ -45,51 +51,49 @@ $content-width: 1200px;
       letter-spacing: -0.3px;
     }
   }
-  &__btn {
-    @include font($size: 24px, $weight: 600, $height: 29px);
-    color: rgba(255, 255, 255, 1);
-    width: 247px;
-    height: 66px;
-    box-sizing: border-box;
-    border: 1px solid rgba(32, 32, 39, 1);
-    border-radius: 60px;
-    background: rgba(32, 32, 39, 1);
-    padding: 16px 28px 16px 28px;
+  &__button {
+    & button {
+      @include button;
+    }
   }
-  &__run-line {
-    position: absolute;
-    top: calc(100% - 90px);
-    left: 0;
+}
+.marquee {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(50px);
+  background: rgba(188, 236, 48, 1);
+  padding-left: 18px;
+  margin-bottom: 100px;
+  z-index: 20;
+  & ul {
     display: flex;
-    align-items: center;
-    height: 90px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(50px);
-    background: rgba(188, 236, 48, 1);
-    padding-left: 18px;
-    & ul {
+    gap: 51px;
+    list-style-type: none;
+    & li {
+      @include font(
+        $size: 30px,
+        $weight: 700,
+        $height: 40px,
+        $letter-spacing: 1.2px
+      );
       display: flex;
       gap: 51px;
-      list-style-type: none;
-      & li {
-        @include font($size: 30px, $weight: 700, $height: 40px, $letter-spacing: 1.2px);
-        display: flex;
-        gap: 51px;
-        align-items: center;
-        white-space: nowrap;
-        text-transform: uppercase;
-        &::after {
-          content: "";
-          width: 36px;
-          height: 36px;
-          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='36.000000' height='36.000000' fill='none' customFrame='%23000000'%3e%3cpath id='Star' d='M22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L3.55271e-15 18L13.1384 13.1384L18 0L22.8616 13.1384Z' fill='rgb(32,32,39)' fill-rule='evenodd' /%3e%3c/svg%3e ");
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
-        & a {
-          color: rgb(39, 32, 33);
-          text-decoration: none;
-        }
+      align-items: center;
+      white-space: nowrap;
+      text-transform: uppercase;
+      &::after {
+        content: "";
+        width: 36px;
+        height: 36px;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='36.000000' height='36.000000' fill='none' customFrame='%23000000'%3e%3cpath id='Star' d='M22.8616 13.1384L36 18L22.8616 22.8616L18 36L13.1384 22.8616L3.55271e-15 18L13.1384 13.1384L18 0L22.8616 13.1384Z' fill='rgb(32,32,39)' fill-rule='evenodd' /%3e%3c/svg%3e ");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      & a {
+        color: rgb(39, 32, 33);
+        text-decoration: none;
       }
     }
   }
@@ -195,3 +199,18 @@ $content-width: 1200px;
   );
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg viewBox='0 0 35.002 125.001' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='35.001953' height='125.001465' fill='none' customFrame='%23000000'%3e%3cpath id='Vector 4791' d='M0.500977 0.500732L34.501 124.501' stroke='rgb(32,32,39)' stroke-linecap='round' stroke-width='1' /%3e%3c/svg%3e ");
 }
+
+.footer {
+  @include adaptive-padding($content-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  background: rgba(189, 237, 53, 1);
+  & p {
+    @include font($size: 24px, $weight: 600, $height: 100%);
+    color: rgba(0, 0, 0, 1);
+  }
+}
+
+@import "cards";

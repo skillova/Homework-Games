@@ -60,7 +60,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],  # Директории для поиска шаблонов
+        "DIRS": [BASE_DIR / 'templates',],  # Директории для поиска шаблонов
         "APP_DIRS": True,  # Искать шаблоны в директориях apps/templates
         "OPTIONS": {
             "context_processors": [
@@ -78,12 +78,16 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'hw1', # Название БД
+        'USER': 'postgres', # Пользователь для подключения
+        'PASSWORD': 'postgres', # Пароль для этого пользователя
+        'HOST': '127.0.0.1', # Адрес, на котором развернут сервер БД
+        'PORT': 5432, # Порт, на котором работает сервер БД
+    }
+}
 
 
 # Password validation
@@ -136,6 +140,10 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",  # Поиск в STATICFILES_DIRS
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",  # Поиск в static/ приложений
 ]
+
+# Настройка медиафайлов
+MEDIA_URL = '/media/'  # URL для доступа к медиафайлам
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Физическая директория хранения
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
