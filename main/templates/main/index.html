@@ -12,18 +12,20 @@
   </div>
   <div class="content__cards-wrapper">
     {% for game in games %}
-    <article class="card">
-      <div class="card__img">
-        <img src="{{ game.image.url }}" alt="" />
-      </div>
-      <div class="card__body">
-        <div class="card__article">
-          <span>{{ game.article }}</span>
+    <article class="card card_hover-zoom">
+      <a href="#{{ game.id }}">
+        <div class="card__img">
+          <img src="{{ game.image.url }}" alt="" />
         </div>
-        <div class="card__title">
-          <h2>{{ game.name }}</h2>
+        <div class="card__body">
+          <div class="card__article">
+            <span>{{ game.article }}</span>
+          </div>
+          <div class="card__title">
+            <h2>{{ game.name }}</h2>
+          </div>
         </div>
-      </div>
+      </a>
     </article>
     {% endfor %}
   </div>
@@ -36,7 +38,7 @@
   </div>
   <div class="content__cards-wrapper content__cards-wrapper_big">
     {% for game in games %}
-    <article class="card card_big">
+    <article class="card card_big" id="{{ game.id }}">
       <div class="card__img card__img_big">
         <img src="{{ game.image.url }}" alt="" />
       </div>

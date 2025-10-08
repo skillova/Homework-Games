@@ -3,7 +3,8 @@
 
 h1,
 h2,
-img {
+img,
+a {
   all: unset;
 }
 
@@ -20,6 +21,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   background: rgba(32, 32, 39, 1);
+  scroll-behavior: smooth;
 }
 
 $content-width: 1200px;
