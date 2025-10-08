@@ -41,6 +41,9 @@
     flex-direction: row;
     width: 100%;
     height: 500px;
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
   }
   &__img {
     position: relative;
